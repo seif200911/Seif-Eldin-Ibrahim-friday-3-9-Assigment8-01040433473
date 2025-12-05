@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's For Dinner</title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg no-print py-3">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <div class="logo-circle me-3">
+                    <i class="fas fa-utensils text-white fs-5"></i>
+                </div>
+                <div>
+                    <h1 class="h5 mb-0 fw-bold">What's For Dinner</h1>
+                    <p class="small text-muted mb-0">Your daily meal inspiration</p>
+                </div>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#"><i class="fas fa-bookmark"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#"><i class="fas fa-clock-rotate-left"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#"><i class="fas fa-gear"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <img src="images/avatar-4.jpg" class="rounded-circle" width="40" height="40"
+                            style="border: 2px solid #FDBA74;" alt="Profile">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="recipe-card" id="recipeSection" style="display: none;">
+            <div class="row g-0">
+                <!-- Image Column -->
+                <div class="col-lg-5">
+                    <div class="recipe-image-container">
+                        <img id="recipeImage" src="" alt="Recipe" class="recipe-image">
+
+                        <div class="rating-badge">
+                            <i class="fas fa-star text-warning"></i>
+                            <span class="fw-semibold" id="ratingAverage">4.8</span>
+                            <span class="text-muted small" id="ratingQuantity">(234 reviews)</span>
+                        </div>
+
+                        <div class="info-overlay">
+                            <div class="row">
+                                <div class="col-4 info-item">
+                                    <i class="fas fa-clock text-warning info-icon"></i>
+                                    <p class="small text-muted mb-1">Prep Time</p>
+                                    <p class="fw-bold mb-0" id="prepTime">15 min</p>
+                                </div>
+                                <div class="col-4 info-item">
+                                    <i class="fas fa-fire-burner text-danger info-icon"></i>
+                                    <p class="small text-muted mb-1">Cook Time</p>
+                                    <p class="fw-bold mb-0" id="cookTime">20 min</p>
+                                </div>
+                                <div class="col-4 info-item">
+                                    <i class="fas fa-users text-primary info-icon"></i>
+                                    <p class="small text-muted mb-1">Servings</p>
+                                    <p class="fw-bold mb-0" id="servings">4 people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="col-lg-7">
+                    <div class="p-4 p-lg-5">
+                        <!-- Header -->
+                        <div class="d-flex justify-content-between align-items-start mb-4">
+                            <div class="flex-grow-1">
+                                <div class="mb-3">
+                                    <span class="badge badge-easy me-2" id="difficultyBadge">Easy</span>
+                                    <span class="badge badge-category" id="categoryBadge">Italian</span>
+                                </div>
+                                <h2 class="fw-bold mb-2" id="recipeName">Recipe Name</h2>
+                                <p class="text-muted" id="recipeDescription">Recipe description</p>
+                            </div>
+                            <div class="d-flex gap-2 no-print">
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                                <button class="btn btn-icon">
+                                    <i class="fas fa-share-nodes"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Warning Alert -->
+                        <div class="warning-alert mb-4" id="timeWarning" style="display: none;">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-triangle-exclamation text-danger fs-4 me-3"></i>
+                                <div>
+                                    <p class="fw-semibold text-danger mb-1">Extended Preparation Time</p>
+                                    <p class="text-danger small mb-0">This recipe requires more than 45 minutes to
+                                        prepare. Plan accordingly!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabs -->
+                        <ul class="nav nav-tabs border-bottom mb-4" role="tablist">
+                            <li class="nav-item flex-fill">
+                                <button class="nav-link active w-100" data-bs-toggle="tab"
+                                    data-bs-target="#ingredients">
+                                    <i class="fas fa-list-check me-1"></i><span
+                                        class="d-none d-md-inline">Ingredients</span>
+                                </button>
+                            </li>
+                            <li class="nav-item flex-fill">
+                                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#instructions">
+                                    <i class="fas fa-book-open me-1"></i><span
+                                        class="d-none d-md-inline">Instructions</span>
+                                </button>
+                            </li>
+                            <li class="nav-item flex-fill">
+                                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#nutrition">
+                                    <i class="fas fa-chart-pie me-1"></i><span
+                                        class="d-none d-md-inline">Nutrition</span>
+                                </button>
+                            </li>
+                            <li class="nav-item flex-fill">
+                                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#tips">
+                                    <i class="fas fa-lightbulb me-1"></i><span class="d-none d-md-inline">Tips</span>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <!-- Ingredients Tab -->
+                            <div class="tab-pane fade show active tab-content-area" id="ingredients">
+                                <div class="p-4 rounded-3"
+                                    style="background: linear-gradient(135deg, #FFF7ED, #FEF3C7);">
+                                    <ul class="list-unstyled" id="ingredientsList"></ul>
+                                </div>
+                            </div>
+
+                            <!-- Instructions Tab -->
+                            <div class="tab-pane fade tab-content-area" id="instructions">
+                                <div id="instructionsList"></div>
+                            </div>
+
+                            <!-- Nutrition Tab -->
+                            <div class="tab-pane fade tab-content-area" id="nutrition">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon bg-warning bg-opacity-25 me-3">
+                                                    <i class="fas fa-fire text-warning"></i>
+                                                </div>
+                                                <span class="fw-medium">Calories</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="calories">520 kcal</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon bg-primary bg-opacity-25 me-3">
+                                                    <i class="fas fa-dumbbell text-primary"></i>
+                                                </div>
+                                                <span class="fw-medium">Protein</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="protein">28g</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon bg-warning bg-opacity-10 me-3">
+                                                    <i class="fas fa-wheat-awn text-warning"></i>
+                                                </div>
+                                                <span class="fw-medium">Carbs</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="carbs">62g</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon bg-danger bg-opacity-25 me-3">
+                                                    <i class="fas fa-droplet text-danger"></i>
+                                                </div>
+                                                <span class="fw-medium">Fat</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="fat">18g</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon bg-success bg-opacity-25 me-3">
+                                                    <i class="fas fa-seedling text-success"></i>
+                                                </div>
+                                                <span class="fw-medium">Fiber</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="fiber">3g</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="nutrition-card d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="nutrition-icon"
+                                                    style="background: rgba(236, 72, 153, 0.25);">
+                                                    <i class="fas fa-cube" style="color: #EC4899;"></i>
+                                                </div>
+                                                <span class="fw-medium">Sodium</span>
+                                            </div>
+                                            <span class="fw-bold fs-5" id="sodium">680mg</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tips Tab -->
+                            <div class="tab-pane fade tab-content-area" id="tips">
+                                <div id="tipsList"></div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="border-top pt-4 mt-4 no-print">
+                            <button class="btn btn-primary-gradient btn-lg" id="tryAnotherBtn">
+                                <i class="fas fa-rotate me-2"></i>Try Another Recipe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
